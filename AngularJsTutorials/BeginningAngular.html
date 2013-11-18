@@ -11,10 +11,11 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
 
     <script>
 
-        var demoApp = angular.module('demoApp', []);
+        var demoApp = angular.module('demoApp', ['ngRoute']);
 
         demoApp.config(function ($routeProvider) {
             $routeProvider
