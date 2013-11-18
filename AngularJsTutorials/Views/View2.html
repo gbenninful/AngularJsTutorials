@@ -1,0 +1,12 @@
+﻿<div>
+    <h2>Hello and Welcome to View 1</h2>
+    City:
+    <br />
+    <input type="text" data-ng-model="city" /> {{city}}
+    <br />
+    <ul>
+        <li data-ng-repeat="cust in customers | filter: city | orderBy: 'city'">
+            {{ cust.name | uppercase }} - {{ cust.city | lowercase }}
+        </li>
+    </ul>
+</div>
