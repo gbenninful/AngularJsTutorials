@@ -2,7 +2,7 @@
 
 demoApp.config(function ($routeProvider) {
     $routeProvider
-    .when('/view1',
+    .when('/',
         {
             controller: 'SimpleController',
             templateUrl: 'Views/View1.html'
@@ -12,21 +12,26 @@ demoApp.config(function ($routeProvider) {
         controller: 'SimpleController',
         templateUrl: 'Views/View2.html'
     })
-    .otherwise({ redirectTo: '/view1' });
+    .otherwise({ redirectTo: '/' });
 })
-.controller('SimpleController', function ($scope) {
-    $scope.customers = [
+
+.factory("Customer", function () {
+
+    return [
         { name: 'John Doe', city: 'New York' },
         { name: 'John Smith', city: 'Phoenix' },
-        { name: 'Jane Doe', city: 'San Francisco' }
+       { name: 'Jane Doe', city: 'San Francisco' }
     ];
+})
 
-    $scope.addCustomer = function () {
-        $scope.customers.push(
+.controller("SimpleController",['$scope', 'Customer', function ($scope, Customer) {
+    $scope.customers = Customer;
+    $scope.addCustomers = function () {
+        $scope.addCustomers.push(
             {
                 name: $scope.newCustomer.name,
                 city: $scope.newCustomer.city
-            });
-    };
-});
-
+            })
+    }
+}
+]);
