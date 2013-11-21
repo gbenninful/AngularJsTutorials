@@ -15,7 +15,8 @@ demoApp.config(function ($routeProvider) {
     .otherwise({ redirectTo: '/' });
 })
 
-.factory("Customer", function () {
+//Creating a customer factory
+.factory("Customer", function () 
 
     return [
         { name: 'John Doe', city: 'New York' },
